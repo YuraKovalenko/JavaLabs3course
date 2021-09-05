@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        perfectNumber(number);
+    }
+
+    public static void perfectNumber(int number) {
+        for (int i = 4; i < number; i += 2) {
+            int s = 1;
+            for (int j = 2; j < Math.sqrt(i) && s <= i; j++) {
+                if (i % j == 0) {
+                    s += i / j + j;
+                }
+            }
+            if (i == s) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+}
